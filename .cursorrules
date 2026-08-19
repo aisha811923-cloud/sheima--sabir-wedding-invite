@@ -1,0 +1,39 @@
+# Cursor Rules: Sheima & Sabir Wedding (.cursorrules)
+
+# 1. TECH STACK & PATTERNS
+- Framework: React / Next.js (App Router) or Vite + React
+- Styling: Tailwind CSS
+- Icons: Lucide React (lucide-react)
+- Animations: Framer Motion (framer-motion) + Canvas Confetti (canvas-confetti)
+- Database: Supabase Client (@supabase/supabase-js)
+- Typography: Amiri (Arabic), Cormorant Garamond / Playfair Display (Serif Headings), Plus Jakarta Sans (Sans Body)
+
+# 2. DESIGN & PALETTE CONSTRAINTS
+- Strict Proscription: NEVER introduce green or emerald color classes.
+- Color Tokens:
+  * bg-pearl: #FAF6F0
+  * bg-card: #FFFFFF
+  * text-charcoal: #1F1617
+  * text-muted-burgundy: #5C4A48
+  * burgundy-primary: #4A0E17
+  * burgundy-secondary: #7A1F2D
+  * gold-primary: #D4AF37
+  * gold-border: #E5C158
+
+# 3. PROJECT DOMAIN TRUTH
+- Bride: Sheima Baig (Daughter of Shaheen Baig & Shabnam Baig)
+- Groom: Sabir Baig (Son of Shahid Baig & Shahida Baig)
+- Grandfather: Late Wahid Baig
+- Events: ONLY Haldi Ceremony (At Our Residence) and Barat Ceremony (Maanbhag Palace).
+- NO Walima events or cards allowed.
+- Sibling names must NOT be listed individually.
+
+# 4. CODE IMPLEMENTATION GUIDELINES
+- Mobile-First: Default class sizes optimized for 390px-430px viewport; use md: and lg: strictly for desktop layout enhancement.
+- Audio Handling: All audio playback MUST originate from an explicit user tap inside the entry gate modal to respect iOS/Android autoplay security policies.
+- Canvas Scratch Card: Always account for device pixel ratio (window.devicePixelRatio) when scaling <canvas> to avoid fuzzy brush strokes on high-DPI retina screens.
+- Supabase Best Practices:
+  * Always use typed client queries.
+  * Handle loading and error states explicitly for all RSVP and Dua submissions.
+  * Sanitize user input before sending to Supabase tables (wedding_rsvps, guest_duas).
+- Clean Components: Keep components modular, self-contained, and strongly typed.
