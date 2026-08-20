@@ -18,7 +18,7 @@ export const EntryGateModal: React.FC<EntryGateModalProps> = ({ onOpen }) => {
     if (hasStarted) return;
     setHasStarted(true);
 
-    // 1. Prime/unlock audio element within active user gesture (without loud premature playback)
+    // 1. Prime/unlock audio element within active user gesture
     primeAudio();
 
     // 2. Play unboxing envelope video
@@ -39,7 +39,7 @@ export const EntryGateModal: React.FC<EntryGateModalProps> = ({ onOpen }) => {
       }
     }
 
-    // 3. Trigger transition & start background audio right at the golden flare burst (~5.2s)
+    // 3. Trigger transition & start background audio right at the golden flare burst (~5.2s-5.5s)
     setTimeout(() => {
       triggerRevealAndAudio();
     }, 5200);
@@ -49,14 +49,14 @@ export const EntryGateModal: React.FC<EntryGateModalProps> = ({ onOpen }) => {
     if (hasTriggeredRevealRef.current) return;
     hasTriggeredRevealRef.current = true;
 
-    // Start background audio with soft 1-second fade-in right when the invitation is revealed
+    // Start background audio with soft volume fade-in right when invitation reveals
     startAudio(true).catch((err) => console.warn('Background audio start error:', err));
 
     setIsFadingOut(true);
     setTimeout(() => {
       setIsDismissed(true);
       onOpen();
-    }, 1000);
+    }, 800);
   };
 
   const handleVideoEnded = () => {
@@ -68,7 +68,7 @@ export const EntryGateModal: React.FC<EntryGateModalProps> = ({ onOpen }) => {
   return (
     <div
       onClick={handleScreenTap}
-      className={`fixed inset-0 z-50 flex flex-col justify-between items-center cursor-pointer select-none bg-black transition-opacity duration-1000 ease-in-out ${
+      className={`fixed inset-0 z-50 flex flex-col justify-between items-center cursor-pointer select-none bg-black transition-opacity duration-800 ease-out ${
         isFadingOut ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
@@ -83,18 +83,18 @@ export const EntryGateModal: React.FC<EntryGateModalProps> = ({ onOpen }) => {
       />
 
       {/* Subtle Vignette Shadows */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/70 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/75 pointer-events-none" />
 
       {/* Top Header Subtle Islamic Inscription */}
       <div className="relative z-10 pt-10 text-center pointer-events-none">
-        <span className="font-arabic text-xl sm:text-2xl text-gold-light/90 drop-shadow-md">
+        <span className="font-arabic text-xl sm:text-2xl text-gold-light/95 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
           ﷽
         </span>
       </div>
 
-      {/* Minimal Elegant Bottom Prompt (Only before tapping) */}
+      {/* Centered Wax Seal & Tap Prompt (Before tapping) */}
       {!hasStarted && (
-        <div className="relative z-10 pb-12 sm:pb-16 flex flex-col items-center gap-3 animate-pulseSubtle px-4 text-center">
+        <div className="relative z-10 pb-12 sm:pb-16 flex flex-col items-center gap-3.5 animate-pulseSubtle px-4 text-center">
           {/* Glowing Wax Seal Icon Button */}
           <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-gold-dark via-gold-primary to-gold-light p-[2px] shadow-gold-glow flex items-center justify-center">
             <div className="w-full h-full rounded-full bg-burgundy flex items-center justify-center">
@@ -102,7 +102,7 @@ export const EntryGateModal: React.FC<EntryGateModalProps> = ({ onOpen }) => {
             </div>
           </div>
 
-          <div className="px-6 py-2.5 rounded-full bg-burgundy/80 backdrop-blur-md border border-gold/60 shadow-gold-glow">
+          <div className="px-6 py-2.5 rounded-full bg-burgundy/85 backdrop-blur-md border border-gold/70 shadow-gold-glow">
             <p className="text-xs sm:text-sm font-serif font-semibold tracking-widest uppercase text-gold-light drop-shadow">
               ✨ Tap anywhere to open invitation ✨
             </p>
@@ -110,14 +110,14 @@ export const EntryGateModal: React.FC<EntryGateModalProps> = ({ onOpen }) => {
         </div>
       )}
 
-      {/* Skip Button after video starts playing */}
+      {/* Skip Button after video starts */}
       {hasStarted && (
         <button
           onClick={(e) => {
             e.stopPropagation();
             triggerRevealAndAudio();
           }}
-          className="absolute bottom-8 right-6 z-20 px-4 py-2 rounded-full bg-burgundy/85 backdrop-blur-md border border-gold/40 text-gold-light text-xs font-sans tracking-widest uppercase hover:bg-burgundy hover:text-white transition-all shadow-lg cursor-pointer"
+          className="absolute bottom-8 right-6 z-20 px-4 py-2 rounded-full bg-burgundy/90 backdrop-blur-md border border-gold/50 text-gold-light text-xs font-sans tracking-widest uppercase hover:bg-burgundy hover:text-white transition-all shadow-lg cursor-pointer"
         >
           Skip to Invite →
         </button>

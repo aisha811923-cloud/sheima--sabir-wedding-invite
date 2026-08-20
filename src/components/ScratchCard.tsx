@@ -21,7 +21,7 @@ export const ScratchCard: React.FC<ScratchCardProps> = ({ onRevealed }) => {
         particleCount: 90,
         spread: 80,
         origin: { y: 0.6 },
-        colors: ['#D4AF37', '#FAF6F0', '#4A0E17', '#7A1F2D', '#F5E08E'],
+        colors: ['#D4AF37', '#FAF0E4', '#4A0E17', '#7A1F2D', '#F5E08E'],
       });
 
       setTimeout(() => {
@@ -30,14 +30,14 @@ export const ScratchCard: React.FC<ScratchCardProps> = ({ onRevealed }) => {
           angle: 60,
           spread: 60,
           origin: { x: 0.1, y: 0.65 },
-          colors: ['#D4AF37', '#FAF6F0', '#4A0E17'],
+          colors: ['#D4AF37', '#FAF0E4', '#4A0E17'],
         });
         confetti({
           particleCount: 50,
           angle: 120,
           spread: 60,
           origin: { x: 0.9, y: 0.65 },
-          colors: ['#D4AF37', '#FAF6F0', '#7A1F2D'],
+          colors: ['#D4AF37', '#FAF0E4', '#7A1F2D'],
         });
       }, 250);
     } catch (e) {
@@ -72,25 +72,25 @@ export const ScratchCard: React.FC<ScratchCardProps> = ({ onRevealed }) => {
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, rect.width, rect.height);
 
-    // Elegant gold border inside canvas
+    // Inner gold border inside canvas
     ctx.strokeStyle = 'rgba(255, 255, 255, 0.75)';
     ctx.lineWidth = 2;
     ctx.strokeRect(8, 8, rect.width - 16, rect.height - 16);
 
-    ctx.strokeStyle = 'rgba(74, 14, 23, 0.2)';
+    ctx.strokeStyle = 'rgba(74, 14, 23, 0.25)';
     ctx.lineWidth = 1;
     ctx.strokeRect(12, 12, rect.width - 24, rect.height - 24);
 
     // Centered prompt text inside canvas
     ctx.fillStyle = '#4A0E17';
-    ctx.font = 'bold 14px "Plus Jakarta Sans", sans-serif';
+    ctx.font = 'bold 13px "Plus Jakarta Sans", sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
-    ctx.fillText('✨ Touch & Scratch Gold Foil ✨', rect.width / 2, rect.height / 2 - 4);
+    ctx.fillText('✨ Touch & Scratch Gold Foil ✨', rect.width / 2, rect.height / 2 - 5);
 
     ctx.font = '11px "Plus Jakarta Sans", sans-serif';
     ctx.fillStyle = '#3B0A11';
-    ctx.fillText('(Drag to reveal wedding date)', rect.width / 2, rect.height / 2 + 16);
+    ctx.fillText('(Drag to reveal wedding date)', rect.width / 2, rect.height / 2 + 15);
   }, []);
 
   useEffect(() => {
@@ -202,26 +202,26 @@ export const ScratchCard: React.FC<ScratchCardProps> = ({ onRevealed }) => {
   };
 
   return (
-    <div className="w-full max-w-sm mx-auto my-10 px-2">
+    <div className="w-full mx-auto my-4">
       {/* Clean prompt above the canvas */}
       <motion.div
         animate={{ y: [0, -3, 0] }}
         transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
         className="text-center mb-3"
       >
-        <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs uppercase tracking-[0.22em] text-slateBurgundy font-bold">
-          <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
+        <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs uppercase tracking-[0.2em] text-[#6D1A27] font-bold">
+          <Sparkles className="w-3.5 h-3.5 text-[#C89D2B]" />
           Scratch with finger to reveal wedding date
-          <Sparkles className="w-3.5 h-3.5 text-gold-dark" />
+          <Sparkles className="w-3.5 h-3.5 text-[#C89D2B]" />
         </span>
       </motion.div>
 
       {/* Main Scratch Canvas Container */}
       <div
         ref={containerRef}
-        className="relative w-full h-[155px] sm:h-[165px] rounded-3xl overflow-hidden shadow-card-royal border border-gold/40 select-none bg-gradient-to-br from-burgundy-dark via-burgundy to-burgundy-secondary text-pearl flex flex-col items-center justify-center p-4 text-center"
+        className="relative w-full h-[155px] sm:h-[165px] rounded-3xl overflow-hidden shadow-[0_12px_30px_rgba(74,14,23,0.12)] border border-[#D4AF37]/50 select-none bg-gradient-to-br from-[#2C050B] via-[#4A0E17] to-[#7A1F2D] text-pearl flex flex-col items-center justify-center p-4 text-center"
       >
-        {/* Revealed Content: Centered velvet burgundy pill */}
+        {/* Revealed Content: Centered velvet burgundy box */}
         <motion.div
           initial={{ scale: 0.9, opacity: 0.8 }}
           animate={
@@ -232,18 +232,18 @@ export const ScratchCard: React.FC<ScratchCardProps> = ({ onRevealed }) => {
           transition={{ type: 'spring', stiffness: 300, damping: 20 }}
           className="relative z-0 flex flex-col items-center justify-center w-full"
         >
-          <div className="flex items-center gap-1.5 text-gold-light text-[10px] uppercase tracking-widest font-sans font-semibold mb-1">
-            <Calendar className="w-3.5 h-3.5 text-gold-light" />
+          <div className="flex items-center gap-1.5 text-[#F5E08E] text-[10px] sm:text-[11px] uppercase tracking-widest font-sans font-bold mb-1">
+            <Calendar className="w-3.5 h-3.5 text-[#F5E08E]" />
             <span>Auspicious Wedding Day</span>
           </div>
 
-          <div className="px-6 py-3 rounded-2xl bg-burgundy-dark/95 border border-gold/75 shadow-gold-glow my-1">
-            <h3 className="text-xl sm:text-2xl font-serif font-bold text-gold-shimmer tracking-wide whitespace-nowrap">
+          <div className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-2xl bg-[#2C050B]/95 border border-[#D4AF37]/80 shadow-[0_0_20px_rgba(212,175,55,0.35)] my-1">
+            <h3 className="text-xl sm:text-2xl font-serif font-bold text-[#FFF3B0] tracking-wide whitespace-nowrap">
               Saturday, 26 December 2026
             </h3>
           </div>
 
-          <p className="text-[11px] font-serif italic text-pearl/85 mt-1">
+          <p className="text-[11px] sm:text-xs font-serif italic text-white/90 mt-1">
             Insha'Allah · Haldi (23 Dec) & Barat (26 Dec)
           </p>
         </motion.div>

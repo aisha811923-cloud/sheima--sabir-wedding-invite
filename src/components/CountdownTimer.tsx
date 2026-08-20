@@ -49,9 +49,9 @@ export const CountdownTimer: React.FC = () => {
   ];
 
   return (
-    <div className="w-full max-w-sm mx-auto mt-12 mb-6 px-2">
-      <div className="text-center mb-4">
-        <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-slateBurgundy font-bold">
+    <div className="w-full mx-auto mt-6 mb-2">
+      <div className="text-center mb-3">
+        <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#6D1A27] font-sans font-bold">
           Counting Down to 26 December 2026
         </span>
       </div>
@@ -60,7 +60,7 @@ export const CountdownTimer: React.FC = () => {
         {units.map((unit, index) => (
           <div
             key={index}
-            className="flex flex-col items-center justify-center py-3.5 px-1.5 rounded-2xl bg-white/95 border border-gold/35 shadow-sm relative overflow-hidden"
+            className="flex flex-col items-center justify-center py-3.5 px-1 rounded-2xl bg-white border border-[#D4AF37]/50 shadow-[0_4px_15px_rgba(74,14,23,0.06)] relative overflow-hidden animate-breathing-glow"
           >
             {/* Sliding Numbers */}
             <div className="h-8 sm:h-9 flex items-center justify-center overflow-hidden relative">
@@ -71,19 +71,19 @@ export const CountdownTimer: React.FC = () => {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -18, opacity: 0 }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}
-                  className="text-xl sm:text-2xl font-serif font-bold text-burgundy tracking-tight block"
+                  className="text-2xl sm:text-3xl font-serif font-bold text-[#4A0E17] tracking-tight block"
                 >
                   {unit.value}
                 </motion.span>
               </AnimatePresence>
             </div>
 
-            <div className="text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-widest text-slateBurgundy mt-1">
+            <div className="text-[9px] sm:text-[10px] font-sans font-bold uppercase tracking-widest text-[#6D1A27] mt-1">
               {unit.label}
             </div>
 
-            {/* Corner Star */}
-            <div className="absolute top-1 right-1.5 text-[8px] text-gold/60 select-none">
+            {/* Corner Star Motif */}
+            <div className="absolute top-1 right-1.5 text-[8px] text-[#D4AF37]/70 select-none" aria-hidden="true">
               ✧
             </div>
           </div>

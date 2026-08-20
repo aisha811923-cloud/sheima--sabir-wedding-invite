@@ -1,24 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ScratchCard } from './ScratchCard';
-import { CountdownTimer } from './CountdownTimer';
 import { Heart } from 'lucide-react';
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.1 },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 30, scale: 0.97 },
+export const cardEntranceVariants = {
+  hidden: { opacity: 0, y: 45, scale: 0.94 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -27,90 +17,79 @@ export const HeroSection: React.FC = () => {
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-50px' }}
-      variants={containerVariants}
-      className="relative pt-8 sm:pt-12 pb-6 px-1 max-w-md mx-auto text-center z-10"
+      viewport={{ once: true, margin: '-60px' }}
+      variants={cardEntranceVariants}
+      className="relative z-10 w-full"
     >
-      {/* Card 1: Sacred Inscription & Couple Hero + Date & Countdown */}
-      <motion.div
-        variants={itemVariants}
-        className="relative p-6 sm:p-8 rounded-t-[48px] rounded-b-[28px] bg-white/95 backdrop-blur-md border border-gold/45 shadow-card-royal overflow-hidden"
-      >
-        {/* Subtle Ornamental Corner Accents */}
-        <div className="absolute top-4 left-4 text-gold text-xs select-none opacity-75">✦ ✧ ✦</div>
-        <div className="absolute top-4 right-4 text-gold text-xs select-none opacity-75">✦ ✧ ✦</div>
+      {/* Island Card 1: Sacred Inscription & Couple Hero */}
+      <div className="relative p-6 sm:p-8 rounded-t-[50px] sm:rounded-t-[60px] rounded-b-3xl bg-white/95 backdrop-blur-sm border-[1.5px] border-[#D4AF37]/50 shadow-[0_18px_45px_rgba(74,14,23,0.08)] text-center overflow-hidden">
+        {/* Ornamental Gold Corner Filigree */}
+        <div className="absolute top-4 left-4 text-[#D4AF37] text-xs select-none opacity-80" aria-hidden="true">
+          ✦ ✧ ✦
+        </div>
+        <div className="absolute top-4 right-4 text-[#D4AF37] text-xs select-none opacity-80" aria-hidden="true">
+          ✦ ✧ ✦
+        </div>
 
         {/* Sacred Calligraphy Header */}
-        <motion.div
-          variants={itemVariants}
-          className="mb-6 pt-2"
-          style={{ filter: 'drop-shadow(0 0 10px rgba(212, 175, 55, 0.3))' }}
-        >
-          <div className="font-arabic text-3xl sm:text-4xl text-burgundy font-bold tracking-wide select-none">
+        <div className="pt-2 mb-4">
+          <div className="font-arabic text-2xl sm:text-3xl text-[#4A0E17] font-bold tracking-wide select-none drop-shadow-[0_1px_2px_rgba(74,14,23,0.15)]">
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
           </div>
-          <p className="text-xs font-serif italic text-slateBurgundy mt-2 tracking-wide">
+          <p className="text-xs sm:text-sm font-medium text-[#6D1A27] mt-1.5 tracking-wide">
             "In the name of Allah, the Most Gracious, the Most Merciful"
           </p>
-        </motion.div>
+        </div>
 
-        {/* Quranic Marriage Blessing Card */}
-        <motion.div
-          variants={itemVariants}
-          className="my-5 py-3.5 px-4 rounded-2xl bg-pearl-light/70 border border-gold/25 shadow-sm"
-        >
-          <p className="text-xs font-serif italic text-slateBurgundy leading-relaxed">
-            "And among His signs is that He created for you mates from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy."
+        {/* Ornate Gold Star Divider */}
+        <div className="flex items-center justify-center gap-2 my-4 text-[#C89D2B]" aria-hidden="true">
+          <span className="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#D4AF37]" />
+          <span className="text-xs">✦ ✧ ✦</span>
+          <span className="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#D4AF37]" />
+        </div>
+
+        {/* Quranic Verse Box (Surah Ar-Rum 30:21) */}
+        <div className="my-5 p-4 sm:p-5 rounded-2xl bg-[#FFF9F2] border border-[#D4AF37]/35 shadow-sm text-center">
+          <p className="font-arabic text-base sm:text-lg text-[#4A0E17] font-medium leading-relaxed mb-2" dir="rtl">
+            وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
           </p>
-          <span className="block text-[10px] uppercase tracking-widest text-gold-dark font-sans mt-2 font-bold">
+          <p className="text-xs sm:text-sm font-normal text-[#241416] leading-relaxed italic">
+            "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy."
+          </p>
+          <span className="block text-[10px] sm:text-[11px] uppercase tracking-widest text-[#C89D2B] font-sans font-bold mt-2.5">
             — Surah Ar-Rum [30:21]
           </span>
-        </motion.div>
+        </div>
 
         {/* Formal Invitation Line */}
-        <motion.p
-          variants={itemVariants}
-          className="text-[10px] sm:text-[11px] uppercase tracking-[0.26em] text-burgundy-secondary font-sans font-bold mt-7 mb-3"
-        >
-          Cordially Request The Honor Of Your Presence At The Wedding Of
-        </motion.p>
+        <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-[#6D1A27] font-sans font-bold mt-6 mb-3">
+          Together with their families, cordially invite you to celebrate the joyous union of their wedding
+        </p>
 
-        {/* Couple Names with Generous Breathing Space */}
-        <motion.div variants={itemVariants} className="my-6 space-y-2.5">
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-gold-shimmer-sweep">
+        {/* Couple Typography with Continuous Shimmering Light-Sweep */}
+        <div className="my-6 space-y-2">
+          <h1 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-[#4A0E17] text-gold-shimmer-sweep leading-tight">
             Sheima Baig
           </h1>
 
-          <div className="flex items-center justify-center gap-3 my-2 text-gold">
-            <span className="h-[1px] w-10 bg-gradient-to-r from-transparent to-gold" />
-            <div className="w-6 h-6 rounded-full bg-burgundy/10 border border-gold/50 flex items-center justify-center shadow-sm">
-              <Heart className="w-3 h-3 fill-gold text-gold" />
+          <div className="flex items-center justify-center gap-3 my-2 text-[#D4AF37]" aria-hidden="true">
+            <span className="h-[1px] w-10 bg-gradient-to-r from-transparent to-[#D4AF37]" />
+            <div className="w-7 h-7 rounded-full bg-[#4A0E17]/10 border border-[#D4AF37]/60 flex items-center justify-center shadow-sm">
+              <Heart className="w-3.5 h-3.5 fill-[#D4AF37] text-[#D4AF37]" />
             </div>
-            <span className="h-[1px] w-10 bg-gradient-to-l from-transparent to-gold" />
+            <span className="h-[1px] w-10 bg-gradient-to-l from-transparent to-[#D4AF37]" />
           </div>
 
-          <h1 className="text-4xl sm:text-5xl font-serif font-bold tracking-tight text-gold-shimmer-sweep">
+          <h1 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-[#4A0E17] text-gold-shimmer-sweep leading-tight">
             Sabir Baig
           </h1>
-        </motion.div>
+        </div>
 
-        <motion.p
-          variants={itemVariants}
-          className="text-xs font-serif italic text-slateBurgundy max-w-xs mx-auto mb-6 leading-relaxed"
-        >
-          As they unite in sacred Nikah under the grace of the Almighty, surrounded by family, love, and prayers.
-        </motion.p>
-
-        {/* Card 2 Embedded: Clean Isolated Scratch Card */}
-        <motion.div variants={itemVariants}>
-          <ScratchCard />
-        </motion.div>
-
-        {/* Independent Live Countdown Timer */}
-        <motion.div variants={itemVariants}>
-          <CountdownTimer />
-        </motion.div>
-      </motion.div>
+        {/* Warm Blessings Note */}
+        <p className="text-xs sm:text-sm font-normal text-[#241416] max-w-xs mx-auto leading-relaxed mt-4 mb-2 italic">
+          "As they unite in sacred Nikah under the grace of the Almighty, surrounded by family, love, and prayers."
+        </p>
+      </div>
     </motion.section>
   );
 };
