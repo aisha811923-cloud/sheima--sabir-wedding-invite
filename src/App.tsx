@@ -18,7 +18,7 @@ export const AppContent: React.FC = () => {
 
   return (
     <div className="relative min-h-screen w-full overflow-x-hidden text-[#1F1617] font-sans selection:bg-[#4A0E17] selection:text-[#FAF0E4]">
-      {/* Fixed Fullscreen 60fps Ambient Particles (Petals & Gold Sparkles over cards) */}
+      {/* Fixed Fullscreen 60fps Ambient Particles (Petals & Gold Sparkles over content) */}
       <ParticleCanvas />
 
       {/* Swaying Hanging Gold Latkan Tassels in Top Corners */}
@@ -32,13 +32,11 @@ export const AppContent: React.FC = () => {
       {/* Top-Right Floating Frosted Glass Audio Pill */}
       <AudioPlayer />
 
-      {/* Master Mobile Wrapper (max-w-[430px] mx-auto px-3 sm:px-4 min-h-screen relative) */}
-      <main className="relative z-10 w-full max-w-[430px] mx-auto px-3 sm:px-4 min-h-screen pt-8 pb-16">
-        {/* Island Card 1: Sacred Inscription & Couple Hero */}
-        <HeroSection />
+      {/* 1. Full-Bleed Cinematic Video Hero Viewport (100dvh) */}
+      <HeroSection />
 
-        <ArchConnector />
-
+      {/* 2. Subsequent Centered Island Cards Container */}
+      <main className="relative z-10 w-full max-w-[430px] mx-auto px-3 sm:px-4 pt-4 pb-16">
         {/* Island Card 2: Interactive Date Reveal & Countdown */}
         <DateCountdownSection />
 
