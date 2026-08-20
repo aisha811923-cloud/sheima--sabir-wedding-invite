@@ -21,8 +21,8 @@ export const HeroSection: React.FC = () => {
       variants={cardEntranceVariants}
       className="relative z-10 w-full"
     >
-      {/* Island Card 1: Sacred Inscription & Couple Hero */}
-      <div className="relative p-6 sm:p-8 rounded-t-[50px] sm:rounded-t-[60px] rounded-b-3xl bg-white/95 backdrop-blur-sm border-[1.5px] border-[#D4AF37]/50 shadow-[0_18px_45px_rgba(74,14,23,0.08)] text-center overflow-hidden">
+      {/* Island Card 1: Sacred Inscription & Couple Hero with p-5 sm:p-7 padding */}
+      <div className="relative p-5 sm:p-7 rounded-t-[50px] sm:rounded-t-[60px] rounded-b-3xl bg-white/95 backdrop-blur-sm border-[1.5px] border-[#D4AF37]/50 shadow-[0_18px_45px_rgba(74,14,23,0.08)] text-center overflow-hidden">
         {/* Ornamental Gold Corner Filigree */}
         <div className="absolute top-4 left-4 text-[#D4AF37] text-xs select-none opacity-80" aria-hidden="true">
           ✦ ✧ ✦
@@ -32,11 +32,11 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Sacred Calligraphy Header */}
-        <div className="pt-2 mb-4">
+        <div className="pt-2 mb-4 space-y-1.5">
           <div className="font-arabic text-2xl sm:text-3xl text-[#4A0E17] font-bold tracking-wide select-none drop-shadow-[0_1px_2px_rgba(74,14,23,0.15)]">
             بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
           </div>
-          <p className="text-xs sm:text-sm font-medium text-[#6D1A27] mt-1.5 tracking-wide">
+          <p className="text-xs sm:text-sm font-medium text-[#6D1A27] tracking-wide leading-relaxed">
             "In the name of Allah, the Most Gracious, the Most Merciful"
           </p>
         </div>
@@ -49,25 +49,25 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Quranic Verse Box (Surah Ar-Rum 30:21) */}
-        <div className="my-5 p-4 sm:p-5 rounded-2xl bg-[#FFF9F2] border border-[#D4AF37]/35 shadow-sm text-center">
-          <p className="font-arabic text-base sm:text-lg text-[#4A0E17] font-medium leading-relaxed mb-2" dir="rtl">
+        <div className="my-5 p-4 sm:p-5 rounded-2xl bg-[#FFF9F2] border border-[#D4AF37]/35 shadow-sm text-center space-y-2">
+          <p className="font-arabic text-base sm:text-lg text-[#4A0E17] font-medium leading-loose" dir="rtl">
             وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً
           </p>
           <p className="text-xs sm:text-sm font-normal text-[#241416] leading-relaxed italic">
             "And of His signs is that He created for you from yourselves mates that you may find tranquility in them; and He placed between you affection and mercy."
           </p>
-          <span className="block text-[10px] sm:text-[11px] uppercase tracking-widest text-[#C89D2B] font-sans font-bold mt-2.5">
+          <span className="block text-[10px] sm:text-[11px] uppercase tracking-widest text-[#C89D2B] font-sans font-bold pt-1">
             — Surah Ar-Rum [30:21]
           </span>
         </div>
 
         {/* Formal Invitation Line */}
-        <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-[#6D1A27] font-sans font-bold mt-6 mb-3">
+        <p className="text-xs sm:text-sm uppercase tracking-[0.18em] sm:tracking-[0.2em] text-[#6D1A27] font-sans font-bold mt-6 mb-3 leading-relaxed">
           Together with their families, cordially invite you to celebrate the joyous union of their wedding
         </p>
 
-        {/* Couple Typography with Continuous Shimmering Light-Sweep */}
-        <div className="my-6 space-y-2">
+        {/* Couple Names with Ample Spatial Breathing Room (my-2 with py-1) */}
+        <div className="my-2 py-1 space-y-2">
           <h1 className="text-3xl sm:text-4xl font-serif font-bold tracking-tight text-[#4A0E17] text-gold-shimmer-sweep leading-tight">
             Sheima Baig
           </h1>

@@ -70,16 +70,16 @@ export function downloadIcsFile(event: CalendarEventDetails, fileName: string = 
 // Predefined ceremony calendar configurations
 export const HALDI_EVENT: CalendarEventDetails = {
   title: 'Haldi Ceremony — Sheima & Sabir Wedding',
-  description: 'A joyful morning celebration of turmeric blessings, love, and traditional floral decor for Sheima Baig & Sabir Baig.',
+  description: 'A joyful evening celebration of turmeric blessings, love, and traditional floral decor for Sheima Baig & Sabir Baig.',
   location: "At Our Residence (Bride's House)",
-  startTime: new Date('2026-12-23T10:00:00+05:30'),
-  endTime: new Date('2026-12-23T14:00:00+05:30'),
+  startTime: new Date('2026-12-23T17:30:00+05:30'),
+  endTime: new Date('2026-12-23T21:30:00+05:30'),
 };
 
 export const BARAT_EVENT: CalendarEventDetails = {
   title: 'Barat Ceremony (Nikah & Grand Banquet) — Sheima & Sabir Wedding',
   description: "Welcoming the Groom's procession and solemnizing the sacred Nikah vows, followed by Grand Banquet for Sheima Baig & Sabir Baig. Location: https://maps.app.goo.gl/981PxrytfNhWm1Rv8",
   location: 'Maanbhag Palace',
-  startTime: new Date('2026-12-26T18:30:00+05:30'),
-  endTime: new Date('2026-12-26T23:30:00+05:30'),
+  startTime: new Date('2026-12-26T21:30:00+05:30'),
+  endTime: new Date('2026-12-27T01:30:00+05:30'),
 };

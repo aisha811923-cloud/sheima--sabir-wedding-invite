@@ -34,17 +34,17 @@ export const EventCard: React.FC = () => {
   const events: EventData[] = [
     {
       id: 'haldi',
-      badge: 'WEDNESDAY • 23 DECEMBER 2026 • 10:00 AM ONWARDS',
+      badge: 'WEDNESDAY • 23 DECEMBER 2026 • 05:30 PM ONWARDS',
       badgeBg: 'bg-[#F5E08E]/40 border-[#D4AF37]/60 text-[#4A0E17]',
       badgeText: 'text-[#4A0E17]',
       title: 'Haldi Ceremony',
       subtitle: 'Traditional Turmeric Blessings & Floral Joy',
       dateStr: 'Wednesday, 23 December 2026',
-      timeStr: '10:00 AM Onwards (Auspicious Morning)',
+      timeStr: '05:30 PM Onwards',
       venueName: 'At Our Residence',
       venueNote: "(Bride's House)",
       description:
-        'A joyful morning filled with the warmth of golden turmeric blessings, fragrant floral garlands, and traditional celebratory music with beloved family and friends.',
+        'A joyful evening filled with the warmth of golden turmeric blessings, fragrant floral garlands, and traditional celebratory music with beloved family and friends.',
       calendarEvent: HALDI_EVENT,
       icsFileName: 'sheima-sabir-haldi.ics',
       mapUrl: 'https://maps.google.com/?q=At+Our+Residence',
@@ -53,13 +53,13 @@ export const EventCard: React.FC = () => {
     },
     {
       id: 'barat',
-      badge: 'SATURDAY • 26 DECEMBER 2026 • 06:30 PM ONWARDS',
+      badge: 'SATURDAY • 26 DECEMBER 2026 • 09:30 PM ONWARDS',
       badgeBg: 'bg-[#4A0E17]/15 border-[#D4AF37]/60 text-[#4A0E17]',
       badgeText: 'text-[#4A0E17]',
       title: 'Barat Ceremony',
       subtitle: 'Nikah Solemnization & Grand Banquet',
       dateStr: 'Saturday, 26 December 2026',
-      timeStr: '06:30 PM Onwards (Auspicious Evening)',
+      timeStr: '09:30 PM Onwards',
       venueName: 'Maanbhag Palace',
       venueNote: '(Main Royal Banquet Hall)',
       description:
@@ -85,8 +85,8 @@ export const EventCard: React.FC = () => {
             variants={cardEntranceVariants}
             className="w-full"
           >
-            {/* Island Arch Card */}
-            <div className="relative p-6 sm:p-8 rounded-t-[50px] sm:rounded-t-[60px] rounded-b-3xl bg-white/95 backdrop-blur-sm border-[1.5px] border-[#D4AF37]/50 shadow-[0_18px_45px_rgba(74,14,23,0.08)] overflow-hidden">
+            {/* Island Arch Card with comfortable p-5 sm:p-7 padding */}
+            <div className="relative p-5 sm:p-7 rounded-t-[50px] sm:rounded-t-[60px] rounded-b-3xl bg-white/95 backdrop-blur-sm border-[1.5px] border-[#D4AF37]/50 shadow-[0_18px_45px_rgba(74,14,23,0.08)] overflow-hidden">
               {/* Corner Star Filigree */}
               <div className="absolute top-4 left-4 text-[#D4AF37] text-xs select-none opacity-80" aria-hidden="true">
                 ✦ ✧ ✦
@@ -97,18 +97,18 @@ export const EventCard: React.FC = () => {
 
               {/* Event Badge */}
               <div className="pt-2 text-center mb-3">
-                <span className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.2em] font-bold border shadow-sm ${evt.badgeBg}`}>
-                  <Sparkles className="w-3 h-3 text-[#C89D2B]" />
+                <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.16em] sm:tracking-[0.2em] font-bold border shadow-sm ${evt.badgeBg}`}>
+                  <Sparkles className="w-3 h-3 text-[#C89D2B] shrink-0" />
                   <span>{evt.badge}</span>
                 </span>
               </div>
 
               {/* Title & Subtitle */}
-              <div className="text-center mb-4">
+              <div className="text-center mb-4 space-y-1">
                 <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#4A0E17] leading-tight">
                   {evt.title}
                 </h3>
-                <p className="text-xs sm:text-sm font-serif italic text-[#6D1A27] font-medium mt-1">
+                <p className="text-xs sm:text-sm font-serif italic text-[#6D1A27] font-medium">
                   {evt.subtitle}
                 </p>
               </div>
@@ -133,12 +133,12 @@ export const EventCard: React.FC = () => {
                   <MapPin className="w-4 h-4 text-[#4A0E17] shrink-0 mt-0.5" />
                   <div>
                     <span className="font-bold text-[#4A0E17] block">{evt.venueName}</span>
-                    <span className="text-[#6D1A27] text-xs block">{evt.venueNote}</span>
+                    <span className="text-[#6D1A27] text-xs block font-medium">{evt.venueNote}</span>
                   </div>
                 </div>
               </div>
 
-              {/* Description */}
+              {/* Description with relaxed line-height */}
               <p className="text-xs sm:text-sm font-normal text-[#241416] leading-relaxed mb-6 italic text-center">
                 "{evt.description}"
               </p>

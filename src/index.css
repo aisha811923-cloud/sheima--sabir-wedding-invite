@@ -12,7 +12,11 @@
     --color-charcoal: #1F1617;
   }
 
-  body {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     background: radial-gradient(ellipse at top, #FFF9F2 0%, #FAF0E4 50%, #F3E5D8 100%);
     background-attachment: fixed;
     color: #1F1617;

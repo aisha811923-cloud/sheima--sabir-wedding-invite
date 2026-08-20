@@ -102,8 +102,8 @@ export const RsvpForm: React.FC = () => {
       variants={cardEntranceVariants}
       className="relative z-10 w-full"
     >
-      {/* Island Card 5: Minimalist RSVP & Family Signature */}
-      <div className="relative p-6 sm:p-8 rounded-t-[50px] sm:rounded-t-[60px] rounded-b-3xl bg-white/95 backdrop-blur-sm border-[1.5px] border-[#D4AF37]/50 shadow-[0_18px_45px_rgba(74,14,23,0.08)] overflow-hidden">
+      {/* Island Card 5: Minimalist RSVP & Family Signature with p-5 sm:p-7 padding */}
+      <div className="relative p-5 sm:p-7 rounded-t-[50px] sm:rounded-t-[60px] rounded-b-3xl bg-white/95 backdrop-blur-sm border-[1.5px] border-[#D4AF37]/50 shadow-[0_18px_45px_rgba(74,14,23,0.08)] overflow-hidden">
         {/* Corner Stars */}
         <div className="absolute top-4 left-4 text-[#D4AF37] text-xs select-none opacity-80" aria-hidden="true">
           ✦ ✧ ✦
@@ -120,7 +120,7 @@ export const RsvpForm: React.FC = () => {
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-[#4A0E17] text-gold-shimmer-sweep">
             RSVP for Celebrations
           </h2>
-          <p className="text-xs sm:text-sm font-serif italic text-[#241416] mt-1">
+          <p className="text-xs sm:text-sm font-serif italic text-[#241416] mt-1 leading-relaxed">
             Please grace us with your response by November 2026
           </p>
           <div className="flex items-center justify-center gap-2 mt-3 text-[#C89D2B]" aria-hidden="true">
@@ -135,7 +135,7 @@ export const RsvpForm: React.FC = () => {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-            className="p-6 rounded-3xl bg-[#4A0E17]/5 border border-[#D4AF37]/40 text-center space-y-4"
+            className="p-5 sm:p-6 rounded-3xl bg-[#4A0E17]/5 border border-[#D4AF37]/40 text-center space-y-4"
           >
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}
@@ -211,7 +211,7 @@ export const RsvpForm: React.FC = () => {
                 placeholder="May Allah bless their union with endless barakah, love, and happiness. Ameen..."
                 value={duaMessage}
                 onChange={(e) => setDuaMessage(e.target.value)}
-                className="w-full p-3.5 rounded-2xl border border-[#D4AF37]/50 bg-[#FFF9F2] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#4A0E17] focus:border-[#4A0E17] text-xs sm:text-sm text-[#241416] font-sans font-medium resize-none placeholder:text-[#5C4A48]/50 shadow-sm"
+                className="w-full p-3.5 rounded-2xl border border-[#D4AF37]/50 bg-[#FFF9F2] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#4A0E17] focus:border-[#4A0E17] text-xs sm:text-sm text-[#241416] font-sans font-medium resize-none placeholder:text-[#5C4A48]/50 shadow-sm leading-relaxed"
               />
             </div>
 
