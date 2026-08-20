@@ -165,4 +165,27 @@
   .animate-spin-slow {
     animation: spinSlow 12s linear infinite;
   }
+
+  /* Dynamic Viewport Height for mobile address bars */
+  @supports (height: 100dvh) {
+    .hero-viewport {
+      height: 100dvh;
+      min-height: 100dvh;
+    }
+  }
+
+  @supports not (height: 100dvh) {
+    .hero-viewport {
+      height: 100vh;
+      min-height: 100vh;
+    }
+  }
+
+  /* Safe area padding for notches and home indicator bars */
+  .safe-top {
+    padding-top: max(1.25rem, env(safe-area-inset-top));
+  }
+  .safe-bottom {
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom));
+  }
 }
