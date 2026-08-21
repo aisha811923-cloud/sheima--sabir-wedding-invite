@@ -5,6 +5,7 @@ import {
   CalendarEventDetails,
   HALDI_EVENT,
   BARAT_EVENT,
+  WALIMA_EVENT,
   generateGoogleCalendarUrl,
   downloadIcsFile,
 } from '../lib/calendarHelper';
@@ -18,6 +19,7 @@ interface EventData {
   badgeText: string;
   title: string;
   subtitle: string;
+  dressCode: string;
   dateStr: string;
   timeStr: string;
   venueName: string;
@@ -34,41 +36,63 @@ export const EventCard: React.FC = () => {
   const events: EventData[] = [
     {
       id: 'haldi',
-      badge: 'WEDNESDAY • 23 DECEMBER 2026 • 05:30 PM ONWARDS',
+      badge: '01 | WEDNESDAY | December 23, 2026 • 05:30 PM Onwards',
       badgeBg: 'bg-[#F5E08E]/40 border-[#D4AF37]/60 text-[#4A0E17]',
       badgeText: 'text-[#4A0E17]',
       title: 'Haldi Ceremony',
-      subtitle: 'Traditional Turmeric Blessings & Floral Joy',
+      subtitle: 'Traditional Turmeric Blessings & Festive Glow',
+      dressCode: 'Haldi Yellows, Ochre & Floral Pastels',
       dateStr: 'Wednesday, 23 December 2026',
       timeStr: '05:30 PM Onwards',
       venueName: 'At Our Residence',
-      venueNote: "(Bride's House)",
+      venueNote: "(Bride's House, Jaipur, Rajasthan)",
       description:
         'A joyful evening filled with the warmth of golden turmeric blessings, fragrant floral garlands, and traditional celebratory music with beloved family and friends.',
       calendarEvent: HALDI_EVENT,
       icsFileName: 'sheima-sabir-haldi.ics',
-      mapUrl: 'https://maps.google.com/?q=At+Our+Residence',
+      mapUrl: 'https://maps.google.com/?q=At+Our+Residence+Jaipur',
       mapLabel: 'View on Maps',
       isNavigation: false,
     },
     {
       id: 'barat',
-      badge: 'SATURDAY • 26 DECEMBER 2026 • 09:30 PM ONWARDS',
+      badge: '02 | SATURDAY | December 26, 2026 • 09:30 PM Onwards',
       badgeBg: 'bg-[#4A0E17]/15 border-[#D4AF37]/60 text-[#4A0E17]',
       badgeText: 'text-[#4A0E17]',
-      title: 'Barat Ceremony',
-      subtitle: 'Nikah Solemnization & Grand Banquet',
+      title: 'The Barat & Nikah',
+      subtitle: 'Grand Nikah Ceremony & Royal Feast',
+      dressCode: 'Traditional Royal & Formal Festive Wear',
       dateStr: 'Saturday, 26 December 2026',
       timeStr: '09:30 PM Onwards',
-      venueName: 'Maanbhag Palace',
-      venueNote: '(Main Royal Banquet Hall)',
+      venueName: 'Rose Garden',
+      venueNote: '(Jaipur, Rajasthan)',
       description:
         "Welcoming the Groom's royal procession, solemnizing the sacred Nikah vows, followed by a lavish imperial banquet dinner and heartfelt felicitations.",
       calendarEvent: BARAT_EVENT,
       icsFileName: 'sheima-sabir-barat.ics',
-      mapUrl: 'https://maps.app.goo.gl/981PxrytfNhWm1Rv8',
+      mapUrl: 'https://maps.app.goo.gl/7Y6TfdRtHpaHWaNM6?g_st=ac',
       mapLabel: 'Turn-by-Turn GPS Directions',
       isNavigation: true,
+    },
+    {
+      id: 'walima',
+      badge: '03 | MONDAY | December 28, 2026 • 08:00 PM Onwards',
+      badgeBg: 'bg-[#C89D2B]/20 border-[#D4AF37]/60 text-[#4A0E17]',
+      badgeText: 'text-[#4A0E17]',
+      title: 'Walima Reception',
+      subtitle: "Grand Evening Reception & Celebratory Dinner hosted by Groom's Family",
+      dressCode: 'Grand Evening Formals & Classic Silks',
+      dateStr: 'Monday, 28 December 2026',
+      timeStr: '08:00 PM Onwards',
+      venueName: "At Groom's Residence",
+      venueNote: '(Jaipur, Rajasthan)',
+      description:
+        "A grand celebratory banquet reception hosted by the Groom's family to celebrate the auspicious union and welcome the newlyweds with love, prayers, and blessings.",
+      calendarEvent: WALIMA_EVENT,
+      icsFileName: 'sheima-sabir-walima.ics',
+      mapUrl: 'https://maps.google.com/?q=At+Grooms+Residence+Jaipur',
+      mapLabel: 'View on Maps',
+      isNavigation: false,
     },
   ];
 
@@ -86,7 +110,7 @@ export const EventCard: React.FC = () => {
             className="w-full"
           >
             {/* Island Arch Card with comfortable p-5 sm:p-7 padding */}
-            <div className="relative p-5 sm:p-7 rounded-t-[50px] sm:rounded-t-[60px] rounded-b-3xl bg-white/95 backdrop-blur-sm border-[1.5px] border-[#D4AF37]/50 shadow-[0_18px_45px_rgba(74,14,23,0.08)] overflow-hidden">
+            <div className="relative p-5 sm:p-7 rounded-t-[50px] sm:rounded-t-[60px] rounded-b-3xl bg-white/95 backdrop-blur-sm border-[1.5px] border-[#D4AF37]/50 shadow-xl overflow-hidden">
               {/* Corner Star Filigree */}
               <div className="absolute top-4 left-4 text-[#D4AF37] text-xs select-none opacity-80" aria-hidden="true">
                 ✦ ✧ ✦
@@ -97,20 +121,29 @@ export const EventCard: React.FC = () => {
 
               {/* Event Badge */}
               <div className="pt-2 text-center mb-3">
-                <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.16em] sm:tracking-[0.2em] font-bold border shadow-sm ${evt.badgeBg}`}>
+                <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[9px] sm:text-[10px] font-sans uppercase tracking-[0.14em] sm:tracking-[0.18em] font-bold border shadow-sm ${evt.badgeBg}`}>
                   <Sparkles className="w-3 h-3 text-[#C89D2B] shrink-0" />
                   <span>{evt.badge}</span>
                 </span>
               </div>
 
               {/* Title & Subtitle */}
-              <div className="text-center mb-4 space-y-1">
+              <div className="text-center mb-3 space-y-1">
                 <h3 className="text-2xl sm:text-3xl font-serif font-bold text-[#4A0E17] leading-tight">
                   {evt.title}
                 </h3>
-                <p className="text-xs sm:text-sm font-serif italic text-[#6D1A27] font-medium">
+                <p className="text-xs sm:text-sm font-serif italic text-[#6D1A27] font-medium leading-relaxed">
                   {evt.subtitle}
                 </p>
+              </div>
+
+              {/* Dress Code Pill */}
+              <div className="flex justify-center mb-4">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FFF9F2] border border-[#D4AF37]/45 text-[10px] sm:text-[11px] font-sans font-medium text-[#4A0E17] shadow-sm">
+                  <span className="text-xs">👗</span>
+                  <span className="font-bold">Dress Code:</span>
+                  <span className="text-[#6D1A27]">{evt.dressCode}</span>
+                </div>
               </div>
 
               {/* Event Details Box */}
@@ -155,7 +188,7 @@ export const EventCard: React.FC = () => {
                     className="btn-reflect inline-flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl border border-[#D4AF37] bg-white text-[#4A0E17] hover:bg-[#4A0E17]/5 text-[11px] uppercase tracking-wider font-sans font-bold transition-all shadow-sm text-center"
                   >
                     <CalendarPlus className="w-3.5 h-3.5 text-[#C89D2B]" />
-                    <span>+ Google Cal</span>
+                    <span>+ Add to Google Cal</span>
                   </motion.a>
 
                   <motion.button
@@ -165,7 +198,7 @@ export const EventCard: React.FC = () => {
                     className="btn-reflect inline-flex items-center justify-center gap-1.5 px-3 py-3 rounded-xl border border-[#D4AF37] bg-white text-[#4A0E17] hover:bg-[#4A0E17]/5 text-[11px] uppercase tracking-wider font-sans font-bold transition-all shadow-sm text-center cursor-pointer"
                   >
                     <Download className="w-3.5 h-3.5 text-[#C89D2B]" />
-                    <span>Download .ics</span>
+                    <span>🍏 Apple / .ics</span>
                   </motion.button>
                 </div>
 

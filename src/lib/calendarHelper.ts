@@ -70,16 +70,24 @@ export function downloadIcsFile(event: CalendarEventDetails, fileName: string = 
 // Predefined ceremony calendar configurations
 export const HALDI_EVENT: CalendarEventDetails = {
   title: 'Haldi Ceremony — Sheima & Sabir Wedding',
-  description: 'A joyful evening celebration of turmeric blessings, love, and traditional floral decor for Sheima Baig & Sabir Baig.',
-  location: "At Our Residence (Bride's House)",
+  description: 'A joyful celebration of traditional turmeric blessings, fragrant floral decor, and celebratory music for Sheima Baig & Sabir Baig.',
+  location: "At Our Residence (Bride's House), Jaipur, Rajasthan",
   startTime: new Date('2026-12-23T17:30:00+05:30'),
   endTime: new Date('2026-12-23T21:30:00+05:30'),
 };
 
 export const BARAT_EVENT: CalendarEventDetails = {
-  title: 'Barat Ceremony (Nikah & Grand Banquet) — Sheima & Sabir Wedding',
-  description: "Welcoming the Groom's procession and solemnizing the sacred Nikah vows, followed by Grand Banquet for Sheima Baig & Sabir Baig. Location: https://maps.app.goo.gl/981PxrytfNhWm1Rv8",
-  location: 'Maanbhag Palace',
+  title: 'The Barat & Nikah — Sheima & Sabir Wedding',
+  description: 'Grand Nikah Ceremony & Royal Feast celebrating the wedding of Sheima Baig & Sabir Baig at Rose Garden, Jaipur. GPS Location: https://maps.app.goo.gl/7Y6TfdRtHpaHWaNM6?g_st=ac',
+  location: 'Rose Garden, Jaipur, Rajasthan',
   startTime: new Date('2026-12-26T21:30:00+05:30'),
-  endTime: new Date('2026-12-27T01:30:00+05:30'),
+  endTime: new Date('2026-12-27T02:00:00+05:30'),
+};
+
+export const WALIMA_EVENT: CalendarEventDetails = {
+  title: 'Walima Reception — Sheima & Sabir Wedding',
+  description: "Grand Evening Reception & Celebratory Dinner hosted by the Groom's Family celebrating the union of Sheima Baig & Sabir Baig.",
+  location: "At Groom's Residence, Jaipur, Rajasthan",
+  startTime: new Date('2026-12-28T20:00:00+05:30'),
+  endTime: new Date('2026-12-28T23:30:00+05:30'),
 };

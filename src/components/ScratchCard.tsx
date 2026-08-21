@@ -244,7 +244,7 @@ export const ScratchCard: React.FC<ScratchCardProps> = ({ onRevealed }) => {
           </div>
 
           <p className="text-[11px] sm:text-xs font-serif italic text-white/90 mt-1">
-            Insha'Allah · Haldi (23 Dec) & Barat (26 Dec)
+            Insha'Allah · Haldi (23 Dec), Barat (26 Dec) & Walima (28 Dec)
           </p>
         </motion.div>
 
